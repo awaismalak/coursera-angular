@@ -18,11 +18,14 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import 'hammerjs';
 import { MenuComponent } from './menu/menu.component';
 import { from } from 'rxjs';
+import { DishDetaileComponent } from './dish-detaile/dish-detaile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    DishDetaileComponent,
+    
   ],
   imports: [
     BrowserModule,

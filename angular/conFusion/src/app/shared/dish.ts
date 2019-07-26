@@ -1,3 +1,5 @@
+import { Comment } from './comment';
+import { from } from 'rxjs';
 export class Dish
 {
     id:string;
@@ -8,6 +10,7 @@ export class Dish
     label:string;
     price:string;
     description:string;
+    comments?:Comment[];
 }
 
 
