@@ -8,19 +8,19 @@ fxLayoutGap="10px"
 fxLayoutGap.xs="0">
 <div fxFlex="40">
 
-        <div fxFlex *ngIf="selectedDish">
+        <div fxFlex *ngIf="meriDish">
                 <mat-card class="example-card">
                   <mat-card-header>
                    
                     <mat-card-title>
-                      {{selectedDish.name | uppercase}}
+                      {{meriDish.name | uppercase}}
                     </mat-card-title>
                   </mat-card-header>
-                  <img mat-card-image src="{{selectedDish.image}}" 
-                  alt="{{selectedDish.image}}">
+                  <img mat-card-image src="{{meriDish.image}}" 
+                  alt="{{meriDish.image}}">
                   <mat-card-content>
                     <p>
-                        {{selectedDish.description}}
+                        {{meriDish.description}}
                     </p>
                   </mat-card-content>
                 
@@ -31,18 +31,19 @@ fxLayoutGap.xs="0">
                 </mat-card>
 
 
+
                 </div>
 </div>
 
 <div fxFlex="40">
 
 
-    <div fxFlex>
+    <div fxFlex  *ngIf="meriDish">
         <mat-card class="example-card">
             <mat-card-title >
                 Comments
             </mat-card-title>
-            <mat-card-content  *ngFor="let varr of selectedDish.comments">
+            <mat-card-content  *ngFor="let varr of meriDish.comments">
 
               {{varr.comment| uppercase}} 
               <div> Star {{varr.rating}}</div>
@@ -53,3 +54,6 @@ fxLayoutGap.xs="0">
 </div>
    
 </div>
+
+
+
