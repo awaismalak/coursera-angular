@@ -1,5 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Dish } from '../shared/dish';
+import { Location} from '@angular/common';
+import { Params, ActivatedRoute} from '@angular/router';
+import { DishService } from '../service/dish.service';
+
 
 
 
@@ -10,17 +14,26 @@ import { Dish } from '../shared/dish';
   styleUrls: ['./dish-detaile.component.scss']
 })
 export class DishDetaileComponent implements OnInit {
-@Input('meriDish') meriDish:Dish;
+
+
+meriDish:Dish;
 
   // commentss= DISHES[0].comments;
 
 
-  constructor() { }
+  constructor(private dishService: DishService,
+              private route: ActivatedRoute,
+              private location :Location ) { }
 
   ngOnInit() {
 
+let id = this.route.snapshot.params['id'];
+this.meriDish=this.dishService.getDish(id);
 
 
+  }
+  awais(){
+    this.location.back();
   }
 
 }

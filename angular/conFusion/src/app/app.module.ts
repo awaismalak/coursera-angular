@@ -10,8 +10,9 @@ import { MatCardModule, MatButtonModule } from '@angular/material';
 import {DishService} from './service/dish.service';
 import { PromotionService} from './service/promotion.service';
 import { AppRoutingModule} from './app-routing/app-routing.module'
-
+import { LeadersinfoService } from './leadersinfo.service';
 import { MatGridListModule } from '@angular/material/grid-list';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -25,6 +26,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { CorporateLeadershipComponent } from './shared/components/corporate-leadership/corporate-leadership.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,9 @@ import { ContactComponent } from './contact/contact.component';
     FooterComponent,
     HomeComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    CorporateLeadershipComponent,
+    LoginComponent
     
   ],
   imports: [
@@ -47,10 +52,20 @@ import { ContactComponent } from './contact/contact.component';
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
  
   ],
-  providers: [DishService,PromotionService],
+  entryComponents:[
+   LoginComponent
+  ],
+  providers: [DishService,PromotionService,
+    
+    
+   
+    
+    
+    LeadersinfoService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
