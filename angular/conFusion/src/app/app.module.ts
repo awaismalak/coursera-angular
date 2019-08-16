@@ -13,6 +13,13 @@ import { AppRoutingModule} from './app-routing/app-routing.module'
 import { LeadersinfoService } from './leadersinfo.service';
 import { MatGridListModule } from '@angular/material/grid-list';
 import {MatDialogModule} from '@angular/material/dialog';
+// forms module imports hear
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 
@@ -41,7 +48,6 @@ import { LoginComponent } from './login/login.component';
     ContactComponent,
     CorporateLeadershipComponent,
     LoginComponent
-    
   ],
   imports: [
     BrowserModule,
@@ -53,8 +59,15 @@ import { LoginComponent } from './login/login.component';
     MatGridListModule,
     MatCardModule,
     MatButtonModule,
-    MatDialogModule
- 
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatSlideToggleModule
+
   ],
   entryComponents:[
    LoginComponent
@@ -62,9 +75,9 @@ import { LoginComponent } from './login/login.component';
   providers: [DishService,PromotionService,
     
     
-   
-    
-    
+  
+  
+  
     LeadersinfoService ],
   bootstrap: [AppComponent]
 })
