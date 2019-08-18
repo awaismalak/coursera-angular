@@ -15,7 +15,7 @@ export class ContactComponent implements OnInit {
   contactType = myvalues;
 
 
-  // @ViewChild('fform', {static: false}) fform;
+   @ViewChild('fform', {static: false}) feedBackFormDiractive;
 
   constructor(private fb: FormBuilder) {
     this.createForm();
@@ -50,7 +50,7 @@ export class ContactComponent implements OnInit {
       contacttype: 'None',
       message: ''
     });
-    // this.fform.resetForm();
+    this.feedBackFormDiractive.resetForm();
   }
 
 
