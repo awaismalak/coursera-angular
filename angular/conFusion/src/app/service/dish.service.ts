@@ -12,7 +12,9 @@ export class DishService {
 
   getDishes(): Promise<Dish[]>{
     console.log('fff');
-    return Promise.resolve(DISHES);
+    return new Promise((resolve)=>{
+      setTimeout(()=>resolve(DISHES),2000)
+    })
   }
 
 
@@ -24,16 +26,22 @@ export class DishService {
 
     dish = newArr[0];
 
-    return Promise.resolve(dish);
-
-
+      return new Promise((resolve)=>{
+      setTimeout(()=>resolve(dish),5000)
+    })
     // return Promise.resolve(DISHES. filter((dish) => (dish.id === id))[0]);
    }
 
 
 
   getFeatureDish():Promise<Dish>{
-    return Promise.resolve(DISHES.filter((dish) => dish.featured)[0]);
+    // return Promise.resolve(DISHES.filter((dish) => dish.featured)[0]);
+    return new Promise((resolve)=>{
+      setTimeout(()=>{
+        resolve(DISHES.filter((dish) => dish.featured)[0]);
+      },2000)
+
+    })
 
   }
 
