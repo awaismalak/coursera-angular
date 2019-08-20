@@ -10,11 +10,10 @@ export class LeadersinfoService {
 
   constructor() { }
 
-  getLeaders(): Leader[]{
+  getLeaders(): Promise<Leader[]>{
     let leadersInfoInstance = new LeadersInfo();
-    return leadersInfoInstance.leader;
+    return Promise.resolve(leadersInfoInstance.leader);
 
-    // return (new LeadersInfo()).leader;
 
   };
 

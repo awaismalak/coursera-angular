@@ -28,7 +28,9 @@ meriDish:Dish;
   ngOnInit() {
 
 let id = this.route.snapshot.params['id'];
-this.meriDish=this.dishService.getDish(id);
+this.dishService.getDish(id).then((dish: Dish)=>{
+  this.meriDish=dish;
+});
 
 
   }
