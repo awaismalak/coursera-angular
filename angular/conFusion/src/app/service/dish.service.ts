@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Dish } from '../shared/dish';
 import { DISHES } from '../shared/dishDetail';
+import { of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -10,12 +12,22 @@ export class DishService {
   constructor() { }
 
 
+  // getDishes(): Promise<Dish[]>{
+  //   return new Promise((resolve)=>{
+  //     setTimeout(()=>resolve(DISHES),2000)
+  //   })
+  // }
+
+
+
+
   getDishes(): Promise<Dish[]>{
-    console.log('fff');
-    return new Promise((resolve)=>{
-      setTimeout(()=>resolve(DISHES),2000)
-    })
-  }
+    return of(DISHES).pipe(delay(2000)).toPromise();
+    }
+  
+
+
+
 
 
   getDish(id:string):Promise<Dish> {
@@ -26,22 +38,21 @@ export class DishService {
 
     dish = newArr[0];
 
-      return new Promise((resolve)=>{
-      setTimeout(()=>resolve(dish),5000)
-    })
-    // return Promise.resolve(DISHES. filter((dish) => (dish.id === id))[0]);
+      return  of(dish).pipe(delay(5000)).toPromise();
+     
+   
    }
 
 
 
-  getFeatureDish():Promise<Dish>{
-    // return Promise.resolve(DISHES.filter((dish) => dish.featured)[0]);
-    return new Promise((resolve)=>{
-      setTimeout(()=>{
-        resolve(DISHES.filter((dish) => dish.featured)[0]);
-      },2000)
 
-    })
+  getFeatureDish():Promise<Dish>{
+   
+var dish = DISHES.filter((dish) => dish.featured)[0];
+    return of(dish).pipe(delay(2000)).toPromise();
+     
+
+    
 
   }
 
@@ -52,3 +63,10 @@ export class DishService {
 
 
 
+
+
+
+
+ // return Promise.resolve(DISHES.filter((dish) => dish.featured)[0]);
+    // var dish =  DISHES.filter((dish) => dish.featured)[0]
+    // return of(dish).pipe(delay(2000)).toPromise();
