@@ -18,7 +18,7 @@ export class CorporateLeadershipComponent implements OnInit {
 
   ngOnInit() {
 
- this.leaderInfoService.getLeaders().then((leaders) => {
+ this.leaderInfoService.getLeaders().subscribe((leaders) => {
   this.leaders = leaders;
 
  });

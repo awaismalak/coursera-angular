@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { LeadersInfo } from './shared/leadersinfo';
 import { from } from 'rxjs';
 import { Leader } from './shared/leader';
+import {Observable, of} from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +12,9 @@ export class LeadersinfoService {
 
   constructor() { }
 
-  getLeaders(): Promise<Leader[]>{
+  getLeaders(): Observable<Leader[]>{
     let leadersInfoInstance = new LeadersInfo();
-    return Promise.resolve(leadersInfoInstance.leader);
-
-
+    return of(leadersInfoInstance.leader).pipe(delay(2000));
   };
 
 

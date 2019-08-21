@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Dish } from '../shared/dish';
 import { DISHES } from '../shared/dishDetail';
-import { of } from 'rxjs';
+import { of, Observable } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
 @Injectable({
@@ -21,8 +21,8 @@ export class DishService {
 
 
 
-  getDishes(): Promise<Dish[]>{
-    return of(DISHES).pipe(delay(2000)).toPromise();
+  getDishes():Observable<Dish[]>{
+    return of(DISHES).pipe(delay(2000))
     }
   
 
@@ -30,7 +30,7 @@ export class DishService {
 
 
 
-  getDish(id:string):Promise<Dish> {
+  getDish(id:string):Observable<Dish> {
 
     let dish: Dish;
 
@@ -38,7 +38,7 @@ export class DishService {
 
     dish = newArr[0];
 
-      return  of(dish).pipe(delay(5000)).toPromise();
+      return  of(dish).pipe(delay(5000));
      
    
    }
@@ -46,10 +46,10 @@ export class DishService {
 
 
 
-  getFeatureDish():Promise<Dish>{
+  getFeatureDish():Observable<Dish>{
    
 var dish = DISHES.filter((dish) => dish.featured)[0];
-    return of(dish).pipe(delay(2000)).toPromise();
+    return of(dish).pipe(delay(2000));
      
 
     
@@ -66,7 +66,3 @@ var dish = DISHES.filter((dish) => dish.featured)[0];
 
 
 
-
- // return Promise.resolve(DISHES.filter((dish) => dish.featured)[0]);
-    // var dish =  DISHES.filter((dish) => dish.featured)[0]
-    // return of(dish).pipe(delay(2000)).toPromise();
