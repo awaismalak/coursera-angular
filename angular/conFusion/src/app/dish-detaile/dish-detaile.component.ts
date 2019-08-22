@@ -55,7 +55,7 @@ export class DishDetaileComponent implements OnInit {
     var currentIdIndex = this.ids.indexOf(currentId);
     var lastIdIndex = this.ids.length - 1;
 
-    if(currentIdIndex>= lastIdIndex) return false;
+    if(currentIdIndex >= lastIdIndex) return false;
     
     var nextIndex = currentIdIndex + 1;
     var nextId = this.ids[nextIndex];
