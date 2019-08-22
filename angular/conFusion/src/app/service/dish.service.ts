@@ -8,7 +8,9 @@ import { delay } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class DishService {
+ dish:Dish;
 
+ 
   constructor() { }
 
 
@@ -38,7 +40,7 @@ export class DishService {
 
     dish = newArr[0];
 
-      return  of(dish).pipe(delay(5000));
+      return  of(dish).pipe(delay(1000));
      
    
    }
@@ -56,7 +58,9 @@ var dish = DISHES.filter((dish) => dish.featured)[0];
 
   }
 
-
+getDishIds():Observable <string[] | any>{
+ return of(DISHES.map(dish => dish.id))
+}
 
   
 }
